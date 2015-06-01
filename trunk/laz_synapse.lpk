@@ -1,20 +1,23 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <Package Version="4">
     <Name Value="laz_synapse"/>
-    <Author Value="Lukas Gebauer"/>
+    <Type Value="RunAndDesignTime"/>
+    <AddToProjectUsesSection Value="True"/>
     <CompilerOptions>
       <Version Value="11"/>
       <SearchPaths>
         <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
       </SearchPaths>
-      <Other>
-        <CompilerPath Value="$(CompPath)"/>
-      </Other>
+      <CodeGeneration>
+        <SmartLinkUnit Value="True"/>
+        <Optimizations>
+          <OptimizationLevel Value="3"/>
+        </Optimizations>
+        <SmallerCode Value="True"/>
+      </CodeGeneration>
     </CompilerOptions>
-    <Description Value="Ararat Synapse: network communications suite"/>
-    <Version Major="40" Minor="1"/>
-    <Files Count="33">
+    <Files Count="34">
       <Item1>
         <Filename Value="asn1util.pas"/>
         <UnitName Value="asn1util"/>
@@ -92,13 +95,13 @@
         <UnitName Value="sntpsend"/>
       </Item19>
       <Item20>
-        <Filename Value="ssfpc.inc"/>
-        <Type Value="Include"/>
+        <Filename Value="ssfpc.pas"/>
+        <AddToUsesPkgSection Value="False"/>
         <UnitName Value="ssfpc"/>
       </Item20>
       <Item21>
-        <Filename Value="sswin32.inc"/>
-        <Type Value="Include"/>
+        <Filename Value="sswin32.pas"/>
+        <AddToUsesPkgSection Value="False"/>
         <UnitName Value="sswin32"/>
       </Item21>
       <Item22>
@@ -134,21 +137,25 @@
         <UnitName Value="synamisc"/>
       </Item29>
       <Item30>
-        <Filename Value="synaser.pas"/>
-        <UnitName Value="synaser"/>
-      </Item30>
-      <Item31>
         <Filename Value="synautil.pas"/>
         <UnitName Value="synautil"/>
-      </Item31>
-      <Item32>
+      </Item30>
+      <Item31>
         <Filename Value="synsock.pas"/>
         <UnitName Value="synsock"/>
-      </Item32>
-      <Item33>
+      </Item31>
+      <Item32>
         <Filename Value="tlntsend.pas"/>
         <UnitName Value="tlntsend"/>
+      </Item32>
+      <Item33>
+        <Filename Value="ssl_openssl.pas"/>
+        <UnitName Value="ssl_openssl"/>
       </Item33>
+      <Item34>
+        <Filename Value="synaser.pas"/>
+        <UnitName Value="synaser"/>
+      </Item34>
     </Files>
     <RequiredPkgs Count="1">
       <Item1>
@@ -163,5 +170,8 @@
       <Version Value="2"/>
       <IgnoreBinaries Value="False"/>
     </PublishOptions>
+    <CustomOptions Items="ExternHelp" Version="2">
+      <_ExternHelp Items="Count"/>
+    </CustomOptions>
   </Package>
 </CONFIG>

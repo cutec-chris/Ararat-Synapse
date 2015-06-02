@@ -47,14 +47,13 @@
 
 {:@abstract(SSH plugin for LibSSH2)
 
-Requires libssh2.dll or libssh2.so. 
-You can download binaries as part of the CURL project from 
-http://curl.haxx.se/download.html
+Require libssh2.dll or libssh2.so. You can download binaries it as part
+of CURL project from http://curl.haxx.se/download.html
 
-You need Pascal bindings for the library too! You can find one at:
+You need pascal bindongs for library too! You can found one at:
  http://www.lazarus.freepascal.org/index.php/topic,15935.msg86465.html#msg86465
 
-This plugin implements the client part only.
+This plugin implementing client part only.
 }
 
 {$IFDEF FPC}
@@ -171,15 +170,10 @@ begin
       end;
       if not SSHCheck(libssh2_session_startup(FSession, FSocket.Socket)) then
         exit;
-      // Attempt private key authentication, then fall back to username/password but
-      // do not forget original private key auth error. This avoids giving spurious errors like
-      // Authentication failed (username/password)
-      // instead of e.g.
-      // Unable to extract public key from private key file: Method unimplemented in libgcrypt backend
       if FSocket.SSL.PrivateKeyFile<>'' then
         if (not SSHCheck(libssh2_userauth_publickey_fromfile(FSession, PChar(FSocket.SSL.Username), nil, PChar(FSocket.SSL.PrivateKeyFile), PChar(FSocket.SSL.KeyPassword))))
-          and (libssh2_userauth_password(FSession, PChar(FSocket.SSL.Username), PChar(FSocket.SSL.Password))<0) then
-            exit;
+          and (not SSHCheck(libssh2_userauth_password(FSession, PChar(FSocket.SSL.Username), PChar(FSocket.SSL.Password)))) then
+          exit;
       FChannel := libssh2_channel_open_session(FSession);
       if not assigned(FChannel) then
       begin
@@ -243,7 +237,7 @@ end;
 
 initialization
   if libssh2_init(0)=0 then
-    SSLImplementation := TSSLLibSSH2;
+		SSLImplementation := TSSLLibSSH2;
  
 finalization
   libssh2_exit;

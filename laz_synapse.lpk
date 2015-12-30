@@ -10,7 +10,7 @@
         <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)-$(LCLWidgetType)"/>
       </SearchPaths>
     </CompilerOptions>
-    <Files Count="32">
+    <Files Count="33">
       <Item1>
         <Filename Value="asn1util.pas"/>
         <UnitName Value="asn1util"/>
@@ -139,6 +139,10 @@
         <Filename Value="synaser.pas"/>
         <UnitName Value="synaser"/>
       </Item32>
+      <Item33>
+        <Filename Value="tzutil.pas"/>
+        <UnitName Value="tzutil"/>
+      </Item33>
     </Files>
     <RequiredPkgs Count="1">
       <Item1>

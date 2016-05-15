@@ -12,14 +12,8 @@ uses
   imapsend, ldapsend, mimeinln, mimemess, mimepart, nntpsend, pingsend, 
   pop3send, slogsend, smtpsend, snmpsend, sntpsend, synachar, synacode, 
   synacrypt, synadbg, synafpc, synaicnv, synaip, synamisc, synautil, synsock, 
-  tlntsend, ssl_openssl, synaser, tzutil, LazarusPackageIntf;
+  tlntsend, ssl_openssl, synaser, tzutil;
 
 implementation
 
-procedure Register;
-begin
-end;
-
-initialization
-  RegisterPackage('laz_synapse', @Register);
 end.

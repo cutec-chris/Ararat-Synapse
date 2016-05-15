@@ -2,7 +2,6 @@
 <CONFIG>
   <Package Version="4">
     <Name Value="laz_synapse"/>
-    <Type Value="RunAndDesignTime"/>
     <AddToProjectUsesSection Value="True"/>
     <CompilerOptions>
       <Version Value="11"/>
